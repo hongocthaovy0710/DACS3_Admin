@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent"
+    tools:context=".SignUpActivity">
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="32dp"
+        android:src="@drawable/logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/yeonsung_regular"
+        android:text="Waves Of Food"
+        android:textColor="@color/black"
+        android:textSize="40sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lato_bold"
+        android:inputType="textEmailAddress"
+        android:text="Sign Up Here For Your\nAdmin Dashboard"
+        android:textAlignment="center"
+        android:textColor="@color/textColor"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/textView2"
+        app:layout_constraintStart_toStartOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/yeonsung_regular"
+        android:text="Choose Your Location"
+        android:textColor="@color/textColor"
+        app:layout_constraintBottom_toTopOf="@+id/textInputLayout"
+        app:layout_constraintStart_toStartOf="@+id/textInputLayout" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="57dp"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+        android:layout_marginLeft="20dp"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp"
+        app:endIconDrawable="@drawable/arrow_down"
+        app:endIconTint="@color/black"
+        android:layout_marginTop="32dp"
+        android:layout_marginRight="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3">
+
+        <AutoCompleteTextView
+            android:id="@+id/listOfLocation"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Choose Location"
+            android:inputType="none"
+            android:fontFamily="@font/lato_regular"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="0dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/lato_regular"
+        android:background="@drawable/edittextshape"
+        android:drawableLeft="@drawable/usernew"
+        android:drawablePadding="15dp"
+        android:elevation="2dp"
+        android:hint="Name Of Owner"
+        android:inputType="textEmailAddress"
+        android:outlineSpotShadowColor="@color/textColor"
+        android:paddingLeft="15dp"
+        app:layout_constraintEnd_toEndOf="@+id/textInputLayout"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textInputLayout"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
+
+    <EditText
+        android:id="@+id/restaurantName"
+        android:layout_width="match_parent"
+        android:layout_height="57dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/lato_regular"
+        android:background="@drawable/edittextshape"
+        android:drawableLeft="@drawable/home"
+        android:drawablePadding="15dp"
+        android:elevation="2dp"
+        android:hint="Name Of Restaurant"
+        android:inputType="textPassword"
+        android:outlineSpotShadowColor="@color/textColor"
+        android:paddingLeft="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name" />
+
+    <EditText
+        android:id="@+id/EmailOrPhone"
+        android:layout_width="0dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="12dp"
+        android:outlineSpotShadowColor="@color/textColor"
+        android:background="@drawable/edittextshape"
+        android:drawableLeft="@drawable/mail"
+        android:drawablePadding="15dp"
+        android:fontFamily="@font/lato_regular"
+        android:hint="Email Or Phone Number"
+        android:paddingLeft="15dp"
+        app:layout_constraintEnd_toEndOf="@+id/restaurantName"
+        app:layout_constraintStart_toStartOf="@+id/restaurantName"
+        app:layout_constraintTop_toBottomOf="@+id/restaurantName" />
+
+    <EditText
+        android:id="@+id/passsword"
+        android:layout_width="0dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/edittextshape"
+        android:drawableLeft="@drawable/lock"
+        android:drawablePadding="15dp"
+        android:fontFamily="@font/lato_regular"
+        android:hint="Password"
+        android:paddingLeft="15dp"
+        app:layout_constraintEnd_toEndOf="@+id/EmailOrPhone"
+        app:layout_constraintStart_toStartOf="@+id/EmailOrPhone"
+        app:layout_constraintTop_toBottomOf="@+id/EmailOrPhone" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/CreateButton"
+        android:layout_width="157dp"
+        android:layout_marginTop="12dp"
+        android:layout_height="57dp"
+        android:background="@drawable/greenbuttonshape"
+        android:fontFamily="@font/yeonsung_regular"
+        android:outlineSpotShadowColor="@color/textColor"
+        android:text="Create account"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/passsword"
+        app:layout_constraintStart_toStartOf="@+id/passsword"
+        app:layout_constraintTop_toBottomOf="@+id/passsword" />
+
+    <TextView
+        android:id="@+id/alreadyHaveAccountButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="5dp"
+        android:fontFamily="@font/lato_bold"
+        android:text="Already Have Account?"
+        android:textColor="@color/textColor"
+        android:textSize="14sp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/CreateButton"
+        app:layout_constraintStart_toStartOf="@+id/CreateButton"
+        app:layout_constraintTop_toBottomOf="@+id/CreateButton" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:fontFamily="@font/yeonsung_regular"
+        android:text="Design By\n Vy Nhung"
+        android:textAlignment="center"
+        android:textColor="@color/textColor"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
