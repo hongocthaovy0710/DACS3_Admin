@@ -198,17 +198,18 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView">
-        
+
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/addMenu"
             android:layout_width="match_parent"
-            android:background="@drawable/greencard"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@drawable/greencard">
 
             <ImageView
                 android:id="@+id/imageView6"
                 android:layout_width="24dp"
-                android:layout_marginTop="10dp"
                 android:layout_height="24dp"
+                android:layout_marginTop="10dp"
                 android:src="@drawable/pluse_round"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -217,8 +218,8 @@
             <TextView
                 android:id="@+id/textView12"
                 android:layout_width="wrap_content"
-                android:layout_marginTop="28dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
                 android:fontFamily="@font/yeonsung_regular"
                 android:text="Add Menu"
                 android:textColor="@color/textColor"
@@ -363,6 +364,7 @@
         app:layout_constraintTop_toTopOf="@+id/cardView3">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/allItemMenu"
             android:layout_width="match_parent"
             android:background="@drawable/greencard"
             android:layout_height="match_parent">

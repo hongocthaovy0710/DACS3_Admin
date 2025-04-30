@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".AdditemActivity">
+    tools:context=".AddItemActivity">
 
     <ScrollView
         android:layout_width="0dp"
@@ -24,34 +24,29 @@
             android:layout_height="match_parent">
 
             <ImageButton
-                android:id="@+id/imageButton2"
-                android:layout_width="45dp"
-                android:layout_height="45dp"
+                android:id="@+id/backButton"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
                 android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
                 android:background="@android:color/transparent"
                 android:scaleType="centerCrop"
                 android:src="@drawable/arrow_left"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.09" />
+                 />
 
             <TextView
                 android:id="@+id/textView18"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="15dp"
                 android:fontFamily="@font/yeonsung_regular"
                 android:text="Add Item"
                 android:textColor="@color/black"
                 android:textSize="40sp"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.31"
-                app:layout_constraintStart_toEndOf="@+id/imageButton2"
-                app:layout_constraintTop_toTopOf="@+id/imageButton2"
-                app:layout_constraintVertical_bias="0.04" />
+                app:layout_constraintStart_toEndOf="@+id/backButton"
+                app:layout_constraintTop_toTopOf="@+id/backButton" />
 
             <EditText
                 android:id="@+id/enterFoodName"
@@ -67,6 +62,7 @@
                 android:inputType="text"
                 android:outlineSpotShadowColor="@color/textColor"
                 android:paddingEnd="15dp"
+                android:paddingStart="15dp"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -87,6 +83,7 @@
                 android:inputType="text"
                 android:outlineSpotShadowColor="@color/textColor"
                 android:paddingEnd="15dp"
+                android:paddingStart="15dp"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
@@ -97,6 +94,7 @@
                 android:id="@+id/selectImage"
                 android:layout_width="0dp"
                 android:layout_height="57dp"
+                android:background="@drawable/edittextshape"
                 android:layout_marginTop="24dp"
                 android:drawableRight="@drawable/pluse_round"
                 android:fontFamily="@font/yeonsung_regular"
@@ -107,7 +105,9 @@
                 app:layout_constraintEnd_toEndOf="@+id/enterFoodFrice"
                 app:layout_constraintStart_toStartOf="@+id/enterFoodFrice"
                 app:layout_constraintTop_toBottomOf="@+id/enterFoodFrice" />
+
             <androidx.cardview.widget.CardView
+                android:id="@+id/cardView8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
@@ -115,15 +115,94 @@
                 app:layout_constraintEnd_toEndOf="@+id/selectImage"
                 app:layout_constraintStart_toStartOf="@+id/selectImage"
                 app:layout_constraintTop_toBottomOf="@+id/selectImage">
-            <ImageView
-                android:id="@+id/selectedImage"
-                android:layout_width="175dp"
-                android:layout_height="110dp"
-                android:src="@drawable/addimage"
-                android:scaleType="fitCenter"
-                />
+
+                <ImageView
+                    android:id="@+id/selectedImage"
+                    android:layout_width="175dp"
+                    android:layout_height="110dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/addimage" />
 
             </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/textView19"
+                android:layout_width="match_parent"
+                android:layout_height="47dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/edittextshape"
+                android:fontFamily="@font/yeonsung_regular"
+                android:gravity="center_vertical"
+                android:paddingLeft="15dp"
+                android:text="Short Description"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/selectImage"
+                app:layout_constraintTop_toBottomOf="@+id/cardView8" />
+
+            <EditText
+                android:id="@+id/description"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@color/white"
+                android:fontFamily="@font/lato_regular"
+                android:text="Lorem ipsum dolor sit amet,
+consectetur adipiscing elit,
+sed do eiusmod tempor incididunt
+ut labore et dolore magna aliqua. Ut enim ad"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="@+id/textView19"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/textView19"
+                app:layout_constraintTop_toBottomOf="@+id/textView19" />
+
+
+            <TextView
+                android:id="@+id/textView20"
+                android:layout_width="match_parent"
+                android:layout_height="47dp"
+                android:background="@drawable/edittextshape"
+                android:fontFamily="@font/yeonsung_regular"
+                android:gravity="center_vertical"
+                android:paddingLeft="15dp"
+                android:text="Short Description"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/description"
+                app:layout_constraintTop_toBottomOf="@+id/description" />
+
+            <EditText
+                android:id="@+id/ingredint"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@color/white"
+                android:fontFamily="@font/lato_regular"
+                android:text="Noddle Salad\nBurger Herbal\nPan Cake \nMomos"
+                app:layout_constraintEnd_toEndOf="@+id/cardView8"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/textView20"
+                app:layout_constraintTop_toBottomOf="@+id/textView20" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/AddItemButton"
+                android:layout_width="157dp"
+                android:layout_height="57dp"
+                android:background="@drawable/greenbuttonshape"
+                android:fontFamily="@font/yeonsung_regular"
+                android:text="Add Item"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:layout_marginBottom="16dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ingredint" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

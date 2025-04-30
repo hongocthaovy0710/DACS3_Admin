@@ -95,6 +95,7 @@
         android:textColor="@color/textColor"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/restaurantName"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="@+id/restaurantName"
         app:layout_constraintTop_toBottomOf="@+id/restaurantName" />
 
@@ -115,6 +116,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
+
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/FacebookButton"
         android:layout_width="125dp"
@@ -130,7 +132,6 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/GoogleButton"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
-
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/loginButton"
