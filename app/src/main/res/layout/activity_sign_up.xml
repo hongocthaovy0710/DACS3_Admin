@@ -102,7 +102,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
 
     <EditText
-        android:id="@+id/restaurantName"
+        android:id="@+id/password"
         android:layout_width="match_parent"
         android:layout_height="57dp"
         android:layout_marginLeft="20dp"
@@ -134,9 +134,9 @@
         android:fontFamily="@font/lato_regular"
         android:hint="Email Or Phone Number"
         android:paddingLeft="15dp"
-        app:layout_constraintEnd_toEndOf="@+id/restaurantName"
-        app:layout_constraintStart_toStartOf="@+id/restaurantName"
-        app:layout_constraintTop_toBottomOf="@+id/restaurantName" />
+        app:layout_constraintEnd_toEndOf="@+id/password"
+        app:layout_constraintStart_toStartOf="@+id/password"
+        app:layout_constraintTop_toBottomOf="@+id/password" />
 
     <EditText
         android:id="@+id/passsword"
@@ -179,9 +179,9 @@
         android:textColor="@color/textColor"
         android:textSize="14sp"
         android:layout_marginTop="10dp"
-        app:layout_constraintEnd_toEndOf="@+id/CreateButton"
-        app:layout_constraintStart_toStartOf="@+id/CreateButton"
-        app:layout_constraintTop_toBottomOf="@+id/CreateButton" />
+        app:layout_constraintEnd_toEndOf="@+id/createUserButton"
+        app:layout_constraintStart_toStartOf="@+id/createUserButton"
+        app:layout_constraintTop_toBottomOf="@+id/createUserButton" />
 
 
     <TextView

@@ -3,9 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/white"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    android:background="@color/white"
+    tools:context=".CreateUserActivity">
+
+    <ImageButton
+        android:id="@+id/backButton"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/transparent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/arrow_left"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
     <ImageView
         android:id="@+id/imageView"
@@ -33,10 +46,9 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
         android:fontFamily="@font/lato_bold"
         android:inputType="textEmailAddress"
-        android:text="Login To Your\nAdmin Dashboard"
+        android:text="Create New User Admin"
         android:textAlignment="center"
         android:textColor="@color/textColor"
         android:textSize="20sp"
@@ -44,19 +56,18 @@
         app:layout_constraintStart_toStartOf="@+id/textView2"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
-
     <EditText
-        android:id="@+id/email"
+        android:id="@+id/name"
         android:layout_width="match_parent"
         android:layout_height="57dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="32dp"
         android:layout_marginRight="20dp"
         android:background="@drawable/edittextshape"
-        android:drawableLeft="@drawable/mail"
+        android:drawableLeft="@drawable/usernew"
         android:drawablePadding="15dp"
         android:elevation="2dp"
-        android:hint="Email"
+        android:hint="Name"
         android:inputType="textEmailAddress"
         android:outlineSpotShadowColor="@color/textColor"
         android:paddingLeft="15dp"
@@ -64,12 +75,32 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="57dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/edittextshape"
+        android:drawableLeft="@drawable/mail"
+        android:drawablePadding="15dp"
+        android:elevation="2dp"
+        android:hint="Email Or Phone Number"
+        android:inputType="text"
+        android:outlineSpotShadowColor="@color/textColor"
+        android:paddingLeft="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name" />
+
     <EditText
         android:id="@+id/password"
         android:layout_width="match_parent"
         android:layout_height="57dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="32dp"
         android:layout_marginRight="20dp"
         android:background="@drawable/edittextshape"
         android:drawableLeft="@drawable/lock"
@@ -84,85 +115,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/email" />
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/createUserButton"
+        android:layout_width="157dp"
+        android:layout_height="57dp"
         android:layout_marginTop="32dp"
+        android:background="@drawable/greenbuttonshape"
         android:fontFamily="@font/yeonsung_regular"
-        android:text="Or\nContinue With"
-        android:textAlignment="center"
-        android:textColor="@color/textColor"
+        android:outlineSpotShadowColor="@color/textColor"
+        android:text="Create New User"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/password"
-        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="@+id/password"
         app:layout_constraintTop_toBottomOf="@+id/password" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/GoogleButton"
-        android:layout_width="125dp"
-        android:layout_height="57dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="12dp"
-        android:background="@drawable/edittextshape"
-        android:drawableLeft="@drawable/google"
-        android:outlineSpotShadowColor="@color/textColor"
-        android:paddingLeft="15dp"
-        android:text="Google"
-        android:textAllCaps="false"
-        app:layout_constraintEnd_toStartOf="@+id/FacebookButton"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
-
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/FacebookButton"
-        android:layout_width="125dp"
-        android:layout_height="57dp"
-        android:layout_marginTop="12dp"
-        android:background="@drawable/edittextshape"
-        android:drawableLeft="@drawable/facebook"
-        android:outlineSpotShadowColor="@color/textColor"
-        android:paddingLeft="15dp"
-        android:text="facebook"
-        android:textAllCaps="false"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/GoogleButton"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/loginButton"
-        android:layout_width="125dp"
-        android:layout_height="57dp"
-        android:layout_marginTop="12dp"
-        android:background="@drawable/greenbuttonshape"
-        android:outlineSpotShadowColor="@color/textColor"
-        android:text="Login"
-        android:textSize="20sp"
-        android:textColor="@color/white"
-        android:fontFamily="@font/yeonsung_regular"
-        android:textAllCaps="false"
-        app:layout_constraintEnd_toEndOf="@id/FacebookButton"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/GoogleButton"
-        app:layout_constraintTop_toBottomOf="@+id/FacebookButton" />
-
-    <TextView
-        android:id="@+id/dontHaveAccountButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:elevation="5dp"
-        android:fontFamily="@font/lato_bold"
-        android:text="Don't Have Account?"
-        android:textColor="@color/textColor"
-        android:textSize="14sp"
-        android:layout_marginTop="10dp"
-        app:layout_constraintEnd_toEndOf="@+id/loginButton"
-        app:layout_constraintStart_toStartOf="@+id/loginButton"
-        app:layout_constraintTop_toBottomOf="@+id/loginButton" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -176,7 +143,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-         />
-
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
