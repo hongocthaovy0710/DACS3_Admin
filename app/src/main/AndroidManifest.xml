@@ -13,6 +13,12 @@
         android:theme="@style/Theme.AdminDACS3"
         tools:targetApi="31">
         <activity
+            android:name=".OutForDeliveryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".OutForDeliveryActivity2"
+            android:exported="false" />
+        <activity
             android:name=".AdditemActivity"
             android:exported="false" />
         <activity
