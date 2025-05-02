@@ -46,7 +46,7 @@ class SignUpActivity : AppCompatActivity() {
             userName = binding.name.text.toString().trim()
             nameOfRestaurant = binding.restaurantName.text.toString().trim()
             email = binding.emailOrPhone.text.toString().trim()
-            password = binding.passsword.text.toString().trim()
+            password = binding.password.text.toString().trim()
 
             if (userName.isBlank() || nameOfRestaurant.isBlank() || email.isBlank() || password.isBlank())  {
                 Toast.makeText(this,"Please fill all fields", Toast.LENGTH_SHORT).show()
@@ -92,7 +92,7 @@ class SignUpActivity : AppCompatActivity() {
         userName = binding.name.text.toString().trim()
         nameOfRestaurant = binding.restaurantName.text.toString().trim()
         email = binding.emailOrPhone.text.toString().trim()
-        password = binding.passsword.text.toString().trim()
+        password = binding.password.text.toString().trim()
         val user = UserModel(userName, nameOfRestaurant, email, password)
         val userId: String = FirebaseAuth.getInstance().currentUser!!.uid
     //save user data firebase database
