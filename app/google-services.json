@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "902798395589",
+    "project_id": "dacs3vynhung",
+    "storage_bucket": "dacs3vynhung.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:902798395589:android:d72b5c56507071f3cd88ac",
+        "android_client_info": {
+          "package_name": "com.example.admindacs3"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWUC-MLtcLcE1lJotHXVDvrdTrKKxtRJ0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

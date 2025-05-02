@@ -102,7 +102,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
 
     <EditText
-        android:id="@+id/password"
+        android:id="@+id/restaurantName"
         android:layout_width="match_parent"
         android:layout_height="57dp"
         android:layout_marginLeft="20dp"
@@ -123,7 +123,7 @@
         app:layout_constraintTop_toBottomOf="@+id/name" />
 
     <EditText
-        android:id="@+id/EmailOrPhone"
+        android:id="@+id/emailOrPhone"
         android:layout_width="0dp"
         android:layout_height="57dp"
         android:layout_marginTop="12dp"
@@ -134,9 +134,9 @@
         android:fontFamily="@font/lato_regular"
         android:hint="Email Or Phone Number"
         android:paddingLeft="15dp"
-        app:layout_constraintEnd_toEndOf="@+id/password"
-        app:layout_constraintStart_toStartOf="@+id/password"
-        app:layout_constraintTop_toBottomOf="@+id/password" />
+        app:layout_constraintEnd_toEndOf="@+id/restaurantName"
+        app:layout_constraintStart_toStartOf="@+id/restaurantName"
+        app:layout_constraintTop_toBottomOf="@+id/restaurantName" />
 
     <EditText
         android:id="@+id/passsword"
@@ -149,12 +149,12 @@
         android:fontFamily="@font/lato_regular"
         android:hint="Password"
         android:paddingLeft="15dp"
-        app:layout_constraintEnd_toEndOf="@+id/EmailOrPhone"
-        app:layout_constraintStart_toStartOf="@+id/EmailOrPhone"
-        app:layout_constraintTop_toBottomOf="@+id/EmailOrPhone" />
+        app:layout_constraintEnd_toEndOf="@+id/emailOrPhone"
+        app:layout_constraintStart_toStartOf="@+id/emailOrPhone"
+        app:layout_constraintTop_toBottomOf="@+id/emailOrPhone" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/CreateButton"
+        android:id="@+id/createUserButton"
         android:layout_width="157dp"
         android:layout_marginTop="12dp"
         android:layout_height="57dp"
@@ -169,6 +169,7 @@
         app:layout_constraintStart_toStartOf="@+id/passsword"
         app:layout_constraintTop_toBottomOf="@+id/passsword" />
 
+
     <TextView
         android:id="@+id/alreadyHaveAccountButton"
         android:layout_width="wrap_content"
@@ -178,11 +179,9 @@
         android:text="Already Have Account?"
         android:textColor="@color/textColor"
         android:textSize="14sp"
-        android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="@+id/createUserButton"
         app:layout_constraintStart_toStartOf="@+id/createUserButton"
         app:layout_constraintTop_toBottomOf="@+id/createUserButton" />
-
 
     <TextView
         android:layout_width="wrap_content"
