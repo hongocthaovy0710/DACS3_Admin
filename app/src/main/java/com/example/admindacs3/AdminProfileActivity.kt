@@ -23,7 +23,7 @@ class AdminProfileActivity : AppCompatActivity() {
         binding.address.isEnabled = false
         binding.email.isEnabled = false
         binding.phone.isEnabled = false
-        binding.passsword.isEnabled = false
+        binding.password.isEnabled = false
 
         var isEnable = false
         binding.editButton.setOnClickListener{
@@ -34,7 +34,7 @@ class AdminProfileActivity : AppCompatActivity() {
             binding.address.isEnabled = isEnable
             binding.email.isEnabled = isEnable
             binding.phone.isEnabled = isEnable
-            binding.passsword.isEnabled = isEnable
+            binding.password.isEnabled = isEnable
         if(isEnable){
             binding.name.requestFocus()
         }

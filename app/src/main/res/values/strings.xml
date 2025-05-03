@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">AdminDACS3</string>
+    <string name="default_web_client_id">902798395589-cpnb6uv9pubainlq60mignsij62ht0cs.apps.googleusercontent.com</string>
+
+
 </resources>

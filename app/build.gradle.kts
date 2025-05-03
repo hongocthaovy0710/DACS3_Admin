@@ -43,6 +43,8 @@ android {
 dependencies {
 
 
+
+    implementation(libs.play.services.auth)
     implementation(libs.firebase.auth.ktx)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)

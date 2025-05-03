@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "902798395589",
+    "firebase_url": "https://dacs3vynhung-default-rtdb.firebaseio.com",
     "project_id": "dacs3vynhung",
     "storage_bucket": "dacs3vynhung.firebasestorage.app"
   },
@@ -12,7 +13,20 @@
           "package_name": "com.example.admindacs3"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "902798395589-0h1bsi6q155h3qq9mfb6hj3u14d9irru.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.admindacs3",
+            "certificate_hash": "291595bb6975f16fc48836deee4dc1746016b6d6"
+          }
+        },
+        {
+          "client_id": "902798395589-cpnb6uv9pubainlq60mignsij62ht0cs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyBWUC-MLtcLcE1lJotHXVDvrdTrKKxtRJ0"
@@ -20,7 +34,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "902798395589-cpnb6uv9pubainlq60mignsij62ht0cs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }
