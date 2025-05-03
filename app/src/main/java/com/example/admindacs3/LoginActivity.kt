@@ -1,17 +1,27 @@
 package com.example.admindacs3
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.ActivityChooserView
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.admindacs3.databinding.ActivityLoginBinding
 import com.example.admindacs3.model.UserModel
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ktx.database
@@ -27,6 +37,8 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var email : String
     private lateinit var password : String
     private lateinit var database : DatabaseReference
+    private lateinit var googleSignInClient: GoogleSignInClient
+
 
     private val binding: ActivityLoginBinding by lazy {
         ActivityLoginBinding.inflate(layoutInflater)
@@ -34,11 +46,19 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+//val googleSigninOptions = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+//    .requestIdToken(getString(R.string.default_web_client_id)).requestIdToken().build()
+
+        val googleSigninOptions = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestIdToken(getString(R.string.default_web_client_id))
+            .build()
 
         //auth
         auth = FirebaseAuth.getInstance()
         //database
         database = Firebase.database.reference
+
+        googleSignInClient = GoogleSignIn.getClient(this, googleSigninOptions)
 
 
 
@@ -55,7 +75,11 @@ class LoginActivity : AppCompatActivity() {
                 createUserAccount(email,password)
             }
 
+binding.GoogleButton.setOnClickListener{
+    val signIntent = googleSignInClient.signInIntent
 
+    launcher.launch(signIntent)
+}
 
         }
         binding.dontHaveAccountButton.setOnClickListener {
@@ -108,5 +132,26 @@ class LoginActivity : AppCompatActivity() {
     private fun updateUi(user: FirebaseUser?) {
         startActivity(Intent(this, MainActivity::class.java))
         finish()
+    }
+
+    private val launcher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
+        result ->if (result.resultCode == Activity.RESULT_OK){
+            val task = GoogleSignIn.getSignedInAccountFromIntent(result.data)
+            if (task.isSuccessful){
+                val account: GoogleSignInAccount = task.result
+                val credential = GoogleAuthProvider.getCredential(account.idToken,null)
+                auth.signInWithCredential(credential).addOnCompleteListener{
+                    authTask->
+                    if (authTask.isSuccessful){
+                        Toast.makeText(this,"successful with google",Toast.LENGTH_SHORT).show()
+                        updateUi(null)
+                }else{
+                    Toast.makeText(this,"fail with google",Toast.LENGTH_SHORT).show()
+                }
+                }
+            }else{
+                Toast.makeText(this,"fail with google",Toast.LENGTH_SHORT).show()
+            }
+    }
     }
 }

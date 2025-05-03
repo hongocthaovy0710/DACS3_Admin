@@ -43,7 +43,6 @@ android {
 dependencies {
 
 
-    implementation(libs.firebase.auth.ktx)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -57,4 +56,10 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    implementation(libs.firebase.auth.ktx)
+
+    implementation ("com.google.android.gms:play-services-auth:20.7.0")
+
+
+
 }
