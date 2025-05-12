@@ -87,3 +87,5 @@ exit /b 1
 if "%OS%"=="Windows_NT" endlocal
 
 :omega
+
+echo Em bé Vy đã ghé qua đây 💖 >NUL
