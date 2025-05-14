@@ -87,11 +87,13 @@ class AddItemActivity : AppCompatActivity() {
                         val imageUrl = resultData?.get("secure_url").toString()
 
                         val newItem = AllMenu(
+                            newItemKey,
                             foodName = foodName,
                             foodPrice = foodPrice,
                             foodDescription = foodDescription,
-                            foodIngredient = foodIngredient,
-                            foodImage = imageUrl
+                            foodImage = imageUrl,
+                            foodIngredient = foodIngredient
+
                         )
 
                         menuref.child(newItemKey).setValue(newItem)
