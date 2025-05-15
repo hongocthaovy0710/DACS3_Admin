@@ -14,7 +14,11 @@ class MenuItemAdapter(
     private val context: Context,
     private val menuList: ArrayList<AllMenu>,
     databaseReference: DatabaseReference,
-    private val onDeleteClickListener: (position: Int) -> Unit
+    private val onDeleteClickListener: (position: Int) -> Unit,
+    //edit
+    private val onEditClickListener: (position: Int) -> Unit
+
+
 
 ) : RecyclerView.Adapter<MenuItemAdapter.AddItemViewHolder>() {
         private val itemQuantities = IntArray(menuList.size) { 1 }
@@ -27,6 +31,7 @@ class MenuItemAdapter(
 
     override fun onBindViewHolder(holder: AddItemViewHolder, position: Int) {
         holder.bind(position)
+
     }
 
     override fun getItemCount(): Int = menuList.size
@@ -54,6 +59,11 @@ class MenuItemAdapter(
                 deleteButton.setOnClickListener {
                     onDeleteClickListener(position)
                 }
+            //edit
+                editButton.setOnClickListener {
+                    onEditClickListener(position)
+                }
+
 
             }
 

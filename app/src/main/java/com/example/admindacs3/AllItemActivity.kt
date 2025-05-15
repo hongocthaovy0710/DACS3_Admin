@@ -2,7 +2,10 @@ package com.example.admindacs3
 
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
+import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.admindacs3.adapter.MenuItemAdapter
@@ -70,13 +73,19 @@ class AllItemActivity : AppCompatActivity() {
         })
     }
     private fun setAdapter() {
-        val adapter = MenuItemAdapter(this@AllItemActivity, menuItems,databaseReference){ position ->
-            deleteMenuItems(position)
-            
-        }
+        val adapter = MenuItemAdapter(this@AllItemActivity, menuItems, databaseReference,
+            onDeleteClickListener = { position ->
+                deleteMenuItems(position)
+            },
+            //edit
+            onEditClickListener = { menuItem ->
+                showEditDialog(menuItem)
+            }
+        )
         binding.MenuRecyclerView.layoutManager = LinearLayoutManager(this)
         binding.MenuRecyclerView.adapter = adapter
     }
+
 
     private fun deleteMenuItems(position: Int) {
         val menuItemToDelete = menuItems[position]
@@ -92,4 +101,61 @@ class AllItemActivity : AppCompatActivity() {
 
         }
     }
+
+//edit
+private fun showEditDialog(position: Int) {
+    val menuItem = menuItems[position]
+    val dialogView = layoutInflater.inflate(R.layout.dialog_edit_item, null)
+    val editFoodName = dialogView.findViewById<EditText>(R.id.editFoodName)
+    val editFoodPrice = dialogView.findViewById<EditText>(R.id.editFoodPrice)
+    val editFoodDescription = dialogView.findViewById<EditText>(R.id.editFoodDescription)
+    val editFoodIngredient = dialogView.findViewById<EditText>(R.id.editFoodIngredient)
+    val saveButton = dialogView.findViewById<Button>(R.id.saveButton)
+
+    // Gán dữ liệu cũ vào EditText
+    editFoodName.setText(menuItem.foodName)
+    editFoodPrice.setText(menuItem.foodPrice)
+    editFoodDescription.setText(menuItem.foodDescription ?: "")
+    editFoodIngredient.setText(menuItem.foodIngredient ?: "")
+
+    val dialog = AlertDialog.Builder(this)
+        .setView(dialogView)
+        .create()
+
+    saveButton.setOnClickListener {
+        val newName = editFoodName.text.toString().trim()
+        val newPrice = editFoodPrice.text.toString().trim()
+        val newDesc = editFoodDescription.text.toString().trim()
+        val newIngre = editFoodIngredient.text.toString().trim()
+
+        if (newName.isNotEmpty() && newPrice.isNotEmpty()) {
+            val updateMap = mapOf(
+                "foodName" to newName,
+                "foodPrice" to newPrice,
+                "foodDescription" to newDesc,
+                "foodIngredient" to newIngre
+            )
+            val key = menuItem.key ?: return@setOnClickListener
+
+            database.reference.child("menu").child(key)
+                .updateChildren(updateMap)
+                .addOnSuccessListener {
+                    Toast.makeText(this, "Đã cập nhật!", Toast.LENGTH_SHORT).show()
+                    menuItem.foodName = newName
+                    menuItem.foodPrice = newPrice
+                    binding.MenuRecyclerView.adapter?.notifyItemChanged(position)
+                    dialog.dismiss()
+                }
+                .addOnFailureListener {
+                    Toast.makeText(this, "Lỗi khi cập nhật", Toast.LENGTH_SHORT).show()
+                }
+        } else {
+            Toast.makeText(this, "Không để trống tên và giá!", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    dialog.show()
+}
+
+
 }
