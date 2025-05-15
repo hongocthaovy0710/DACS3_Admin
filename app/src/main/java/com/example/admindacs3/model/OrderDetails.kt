@@ -2,26 +2,29 @@ package com.example.admindacs3.model
 
 import android.os.Parcel
 import android.os.Parcelable
-import java.io.Serializable
 
-class OrderDetails() : Serializable {
+class OrderDetails() : Parcelable {
     var userUid: String? = null
     var userName: String? = null
-    var foodNames: MutableList<String>? = null
-    var foodImages: MutableList<String>? = null
-    var foodPrices: MutableList<String>? = null
-    var foodQuantities: MutableList<Int>? = null
+    var foodNames: MutableList<String> = mutableListOf()
+    var foodImages: MutableList<String> = mutableListOf()
+    var foodPrices: MutableList<String> = mutableListOf()
+    var foodQuantities: MutableList<String> = mutableListOf() // Sử dụng String thay vì Int để phù hợp với Firebase
     var address: String? = null
     var totalPrice: String? = null
     var phoneNumber: String? = null
     var orderAccepted: Boolean = false
     var paymentReceived: Boolean = false
     var itemPushKey: String? = null
-    var currentTime: Long = 0
+    var currentTime: Long = 0   // Giữ nguyên kiểu Long cho timestamp
 
     constructor(parcel: Parcel) : this() {
         userUid = parcel.readString()
         userName = parcel.readString()
+        parcel.readStringList(foodNames)
+        parcel.readStringList(foodImages)
+        parcel.readStringList(foodPrices)
+        parcel.readStringList(foodQuantities)
         address = parcel.readString()
         totalPrice = parcel.readString()
         phoneNumber = parcel.readString()
@@ -31,12 +34,24 @@ class OrderDetails() : Serializable {
         currentTime = parcel.readLong()
     }
 
- fun describeContents(): Int {
-        TODO("Not yet implemented")
+    override fun describeContents(): Int {
+        return 0
     }
 
-   fun writeToParcel(p0: Parcel, p1: Int) {
-        TODO("Not yet implemented")
+    override fun writeToParcel(parcel: Parcel, flags: Int) {
+        parcel.writeString(userUid)
+        parcel.writeString(userName)
+        parcel.writeStringList(foodNames)
+        parcel.writeStringList(foodImages)
+        parcel.writeStringList(foodPrices)
+        parcel.writeStringList(foodQuantities)
+        parcel.writeString(address)
+        parcel.writeString(totalPrice)
+        parcel.writeString(phoneNumber)
+        parcel.writeByte(if (orderAccepted) 1 else 0)
+        parcel.writeByte(if (paymentReceived) 1 else 0)
+        parcel.writeString(itemPushKey)
+        parcel.writeLong(currentTime)
     }
 
     companion object CREATOR : Parcelable.Creator<OrderDetails> {

@@ -334,7 +334,7 @@
                 android:layout_width="24dp"
                 android:layout_marginTop="10dp"
                 android:layout_height="24dp"
-                android:src="@drawable/user_plus"
+                android:src="@drawable/ic_chart_bar"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -345,7 +345,7 @@
                 android:layout_marginTop="28dp"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/yeonsung_regular"
-                android:text="Create New User"
+                android:text="Sold Product"
                 android:textColor="@color/textColor"
                 app:layout_constraintEnd_toEndOf="@+id/imageView11"
                 app:layout_constraintStart_toStartOf="@+id/imageView11"
