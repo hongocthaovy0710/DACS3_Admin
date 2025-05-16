@@ -88,19 +88,34 @@ class AllItemActivity : AppCompatActivity() {
 
 
     private fun deleteMenuItems(position: Int) {
-        val menuItemToDelete = menuItems[position]
-        val menuItemKey = menuItemToDelete.key
-        val foodMenuReference = database.reference.child("menu").child(menuItemKey!!)
-        foodMenuReference.removeValue().addOnCompleteListener { task ->
-            if (task.isSuccessful) {
-                menuItems.removeAt(position)
-                binding.MenuRecyclerView.adapter?.notifyItemRemoved(position)
-            } else {
-                Toast.makeText(this,"Item not deleted",Toast.LENGTH_SHORT).show()
-            }
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Xác nhận xóa")
+        builder.setMessage("Bạn có chắc muốn xóa món này không?")
 
+        builder.setPositiveButton("Xóa") { dialog, _ ->
+            val menuItemToDelete = menuItems[position]
+            val menuItemKey = menuItemToDelete.key
+            val foodMenuReference = database.reference.child("menu").child(menuItemKey!!)
+
+            foodMenuReference.removeValue().addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    menuItems.removeAt(position)
+                    binding.MenuRecyclerView.adapter?.notifyItemRemoved(position)
+                } else {
+                    Toast.makeText(this, "Xóa không thành công", Toast.LENGTH_SHORT).show()
+                }
+            }
+            dialog.dismiss()
         }
+
+        builder.setNegativeButton("Hủy") { dialog, _ ->
+            dialog.dismiss()
+        }
+
+        val dialog = builder.create()
+        dialog.show()
     }
+
 
     //edit
     private fun showEditDialog(position: Int) {

@@ -110,10 +110,8 @@ class OrderDetailsActivity : AppCompatActivity() {
         tvCustomerAddress.text = "Địa chỉ: $address"
         tvOrderTime.text = "Thời gian đặt: $formattedTime"
 
-        // Xóa hết item cũ (nếu gọi nhiều lần)
         layoutItemsContainer.removeAllViews()
 
-        // Thêm từng món vào layout
         for (i in foodNames.indices) {
             val itemRow = LinearLayout(this)
             itemRow.orientation = LinearLayout.HORIZONTAL
@@ -136,12 +134,13 @@ class OrderDetailsActivity : AppCompatActivity() {
 
             val tvPrice = TextView(this).apply {
                 layoutParams = paramsOther
-                text = "${foodPrices[i]}$"
+                text = "${foodPrices[i]}$" // Hiển thị $
                 gravity = Gravity.CENTER
             }
 
-            val quantity = foodQuantity[i].toString().toInt()
-            val price = foodPrices[i].toString().toInt()
+            // Loại bỏ ký tự không phải số trước khi parseInt
+            val quantity = foodQuantity[i].toString().filter { it.isDigit() }.toInt()
+            val price = foodPrices[i].toString().filter { it.isDigit() }.toInt()
             val thanhTien = quantity * price
 
             val tvTotal = TextView(this).apply {
@@ -161,13 +160,13 @@ class OrderDetailsActivity : AppCompatActivity() {
         tvTotalAmount.text = "Tổng tiền: ${totalPrice}$"
 
         AlertDialog.Builder(this)
-
             .setView(dialogView)
             .setPositiveButton("Xuất") { dialog, _ ->
                 dialog.dismiss()
             }
             .show()
     }
+
 
 
 }
