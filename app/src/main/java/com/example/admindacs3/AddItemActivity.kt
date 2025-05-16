@@ -39,11 +39,11 @@ class AddItemActivity : AppCompatActivity() {
         database = FirebaseDatabase.getInstance()
 
         // Init Cloudinary
-        val config: MutableMap<String, String> = HashMap()
-        config["cloud_name"] = "dogljqijs"
-        config["api_key"] = "257597465547465"
-        config["api_secret"] = "fW87431vn3ockgOd81r8HTscF-w"
-        MediaManager.init(this, config)
+//        val config: MutableMap<String, String> = HashMap()
+//        config["cloud_name"] = "dogljqijs"
+//        config["api_key"] = "257597465547465"
+//        config["api_secret"] = "fW87431vn3ockgOd81r8HTscF-w"
+//        MediaManager.init(this, config)
 
         binding.AddItemButton.setOnClickListener {
             // Get input

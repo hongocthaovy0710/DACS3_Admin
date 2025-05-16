@@ -9,7 +9,7 @@ class OrderDetails() : Parcelable {
     var foodNames: MutableList<String> = mutableListOf()
     var foodImages: MutableList<String> = mutableListOf()
     var foodPrices: MutableList<String> = mutableListOf()
-    var foodQuantities: MutableList<String> = mutableListOf() // Sử dụng String thay vì Int để phù hợp với Firebase
+    var foodQuantities: MutableList<Int> = mutableListOf() // Đổi thành Int để đọc giá trị số nguyên từ Firebase
     var address: String? = null
     var totalPrice: String? = null
     var phoneNumber: String? = null
@@ -24,7 +24,11 @@ class OrderDetails() : Parcelable {
         parcel.readStringList(foodNames)
         parcel.readStringList(foodImages)
         parcel.readStringList(foodPrices)
-        parcel.readStringList(foodQuantities)
+        foodQuantities = mutableListOf()
+        val size = parcel.readInt()
+        for (i in 0 until size) {
+            foodQuantities.add(parcel.readInt())
+        }
         address = parcel.readString()
         totalPrice = parcel.readString()
         phoneNumber = parcel.readString()
@@ -44,7 +48,10 @@ class OrderDetails() : Parcelable {
         parcel.writeStringList(foodNames)
         parcel.writeStringList(foodImages)
         parcel.writeStringList(foodPrices)
-        parcel.writeStringList(foodQuantities)
+        parcel.writeInt(foodQuantities.size)
+        for (quantity in foodQuantities) {
+            parcel.writeInt(quantity)
+        }
         parcel.writeString(address)
         parcel.writeString(totalPrice)
         parcel.writeString(phoneNumber)
